@@ -150,3 +150,6 @@ PrintWriter class has all the same methods as the PrintStream except for the met
 subclass the PrintWriter is intended to write text.
 
 The PrintWriter has a wide selection of contructors that enable you to connect it to a File, an OutputStream, or a Writer.
+
+---
+[< Previous](./08-io-fundamentals.md) | [Next >](./08-nio2.md)
