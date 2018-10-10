@@ -55,6 +55,7 @@ method readLine() by buffering characters. It is an efficient way of reading cha
 The same relationship exists between FileWriter and BufferedWriter but for writing.
 
 **# BufferedWriter:**
+
 - BufferedWriter does not have writeUTF method but it does have newLine and write(String) methods.
 - A Reader can be chained to a BufferedReader to read Strings. BufferedReader has readLine method that returns a String.
 - There is no readLines method in BufferedReader. There is a readLine method but it returns only one line.
@@ -66,6 +67,7 @@ the file but don't want to close the writer yet.
 - The close method flushes the stream and makes sure that all data is actually written to the file. 
 
 **# PrintWriter:**
+
 - PrintWriter does not provide explicit methods for writing primitives (i.e. writeInt, writeBoolean, etc.). It has 
 overloaded **print** methods that take various primitives (i.e. print(int), print(boolean), print(long), and print(char) 
 as arguments).
@@ -138,6 +140,7 @@ public class Portfolio implements Serializable {
     }
 }
 ```
+
 1. Bond class does not implement Serializable. Therefore, for Portfolio to be serialized, 'bond' must be made transient.
 2. writeObject method takes ObjectOutputStream as the only parameter, while readObject method takes ObjectInputStream.
 3. To serialize the object using the default behavior, you must call `objectOutputStream.defaultWriteObject();` or 
@@ -166,6 +169,7 @@ data to the console.
 It just returns null if Console is not available.
   
 **# Available methods:**
+
 - `public PrintWriter writer()`
 Retrieves the unique PrintWriter object associated with this console.
 - `public Reader reader()`

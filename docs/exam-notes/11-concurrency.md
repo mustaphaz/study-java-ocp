@@ -7,11 +7,13 @@ or to execute periodically. The schedule methods create tasks with various delay
 used to cancel or check execution. The scheduleAtFixedRate and scheduleWithFixedDelay methods create and execute tasks 
 that run periodically until cancelled. There is no FixedDelayExecutorService!
 - A class implementing the Callable interface, must implement the method call():
+
 ```
 public interface Callable<V>{   
   V call() throws Exception; 
 }
 ```
+
 - Callable is a task that returns a result and may throw an exception. Implementers define a single method with 
 no arguments called call. The Callable interface is similar to Runnable, in that both are designed for classes whose 
 instances are potentially executed by another thread. A Runnable, however, does not return a result and cannot throw 
@@ -47,6 +49,7 @@ adding null key as well as null values but ConcurrentHashMap does not.
 even if the stream is a parallel stream.
 
 **# A few important classes in java.util.concurrent package:**
+
 1. ExecutorService interface extends Executor interface. While Executor allows you to execute a Runnable, 
 ExecutorService allows you to execute a Callable.  
 2. Executors is a utility class that provides several static methods to create instances of ExecutorService. All such 
@@ -55,6 +58,7 @@ newFixedThreadPool(int noOfThreads), newSingleThreadExecutor(), newCachedThreadP
 newSingleThreadScheduledExecutor(), newScheduledThreadPool(int corePoolSize).
 
 **# fork/join framework:**
+
 - This is the general logic of how the fork/join framework is used:
   1. First check whether the task is small enough to be performed directly without forking. If so, perform it without forking. 
   2. If no, then split the task into multiple small tasks (at least 2) and submit the subtasks back to the pool using 
@@ -101,6 +105,7 @@ In other words, Math.random() is a synchronized method, so it can be used by mul
 performance.
 
 **# ReadWriteLock:**
+
 - From a ReadWriteLock, you can get one read lock (by calling `lock.readLock()` ) and one write lock (by calling
 `lock.writeLock()` ). Even if you call these methods multiple times, the same lock is returned.
 - A read lock can be locked by multiple threads simultaneously (by calling `lock.readLock().lock()` ), if the write lock 
@@ -113,18 +118,21 @@ no other thread can read or write.
 Neither one takes any argument.
 
 **# ReentrantLock:**
+
 - The ReentrantLock class implements the Lock interface and provides synchronization to methods while accessing shared 
 resources. As the name says, ReentrantLock allow threads to enter into lock on a resource more than once.
-- Lock.lock() returns void. Lock.tryLock() returns boolean.
+- `Lock.lock()` returns void. `Lock.tryLock()` returns boolean.
 
 **# java.util.concurrent.ConcurrentMap:**
+
 - It is a Map providing additional atomic putIfAbsent, remove, and replace methods.
 - default methods in Map interface: 
-    -   `V putIfAbsent(K key, V value)`
-    -   `boolean remove(Object key, Object value)`
+    -  `V putIfAbsent(K key, V value)`
+    -  `boolean remove(Object key, Object value)`
     - `boolean replace(K key, V oldValue, V newValue)`
 
 **# java.util.concurrent.atomic.AtomicInteger:**
+
 - `incrementAndGet()` atomically increments the current value by 1 and returns the new value.
 - `addAndGet(1)` atomically adds the given value to the current value and returns the new value.
 - `getAndIncrement()` atomically increments the current value by 1 but it will return the old value.
@@ -138,6 +146,7 @@ if the current value == the expected value.
 potentially change after comparison and just befor it is set again.
 
 **# public class ThreadLocalRandom extends Random:**
+
 - A random number generator isolated to the current thread. Like the global Random generator used by the Math class, a 
 ThreadLocalRandom is initialized with an internally generated seed that may not otherwise be modified. When applicable, 
 use of ThreadLocalRandom rather than shared Random objects in concurrent programs will typically encounter much less 

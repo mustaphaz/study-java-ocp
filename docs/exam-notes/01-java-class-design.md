@@ -10,6 +10,7 @@ Because of the different hashcode, you cannot find a value using a key that is e
 - When auto-unboxing will try to convert null into a primitive, it will throw a NullPointerException.
 
 **# Rules for the equals method:**
+
 -  It is reflexive.
 -  It is symmetric.
 -  It is transitive.
@@ -41,6 +42,7 @@ extends from a framework class. Composition is a good way to reuse functionality
 not require your class to extend from any other class.
 
 **# Map:**
+
 - A Map is nothing but a set of buckets holding key-value pairs. Each bucket corresponds to a unique hashcode.
 - When you store a key-value pair in a Map, the following things happen:
   1. Hashcode of the key is computed. This key is used to identify the bucket where the key-value must be stored.
@@ -56,6 +58,7 @@ that are equal as per equals() method. If this rule is not followed, you will no
 from the map using another key object that is equal to the key object stored in the map.
 
 ### §1.3 Singleton and Immutable classes
+
 - All instances of wrapper classes and String class are immutable. The difference between StringBuffer and StringBuilder 
 is that StringBuffer is thread safe while StringBuilder is not. Because of this StringBuilder is faster than 
 StringBuffer.
@@ -76,6 +79,7 @@ things:
          internal mutable objects when necessary to avoid returning the originals in your methods.
         
 ### §1.4 Use static keyword
+
 - A static block will be executed only once when the class is loaded. A class is loaded when it is first referenced. In 
 this case, it is first referenced by the JVM when it tries to run the main() method of this class.
  

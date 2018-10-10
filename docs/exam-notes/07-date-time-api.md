@@ -41,6 +41,7 @@ DAYS, MONTHS, and YEARS.
 - FYI, any unit larger than ChronoUnit.DAYS causes the truncatedTo method to throw UnsupportedTemporalTypeException.
 
 **#toString method of java.time.Duration:**
+
 - It generates a string representation of the duration object using ISO-8601 seconds based representation, such as 
 `PT8H6M12.345S`.  
 - The format of the returned string will be PTnHnMnS, where n is the relevant hours, minutes or seconds part of the 
@@ -48,6 +49,7 @@ duration. Any fractional seconds are placed after a decimal point i the seconds 
 it is omitted. The hours, minutes and seconds will all have the same sign.
 
 **#`public static Duration between(Temporal startInclusive, Temporal endExclusive)`:**
+
 1. Duration.between method computes the duration between two temporal objects. If the objects are of different types, 
 then the duration is calculated based on the type of the first object. For example, if the first argument is a 
 LocalTime then the second argument is converted to a LocalTime. (Not the case here because both arguments are of 

@@ -69,6 +69,7 @@ linked list defines the iteration ordering, which is normally the order in which
 answer such questions: `spaces < numbers < uppercase < lowercase`.
 
 **# TreeSet:**
+
 - Note that TreeSet is an ordered set that keeps its elements in a sorted fashion. When you call the add() method, it 
 immediately compares the element to be added to the existing elements and puts the new element in its appropriate place. 
 Thus, the foremost requirement of a TreeSet is that the elements must either implement Comparable interface (which has 
@@ -79,6 +80,7 @@ warning. The compiler knows nothing about this requirement of TreeSet since it i
 not a language level requirement. However, it throws a ClassCastException at runtime when you add the first element itself.
 
 **# NavigableSet:**
+
 - A NavigableSet is a SortedSet extended with navigation methods reporting closest matches for given search targets. 
 Methods lower, floor, ceiling, and higher return elements respectively less than, less than or equal, greater than or 
 equal, and greater than a given element, returning null if there is no such element. Since NavigableSet is a SortedSet, 
@@ -100,6 +102,7 @@ are inserting must fall within that range. Otherwise an IllegalArgumentException
 range.".
 
 **# NavigableMap:**
+
 - A NavigableMap is a SortedMap (which in turn extends Map) extended with navigation methods returning the closest 
 matches for given search targets. Methods lowerEntry, floorEntry, ceilingEntry, and higherEntry return Map. Entry 
 objects associated with keys respectively less than, less than or equal, greater than or equal, and greater than a 
@@ -108,7 +111,9 @@ return only the associated keys. All of these methods are designed for locating,
 - TreeMap is a class that implements NavigableMap interface. ConcurrentSkipListMap is the other such class.
 
 **# Deque:**
-A Deque can act as a Queue as well as a Stack:  
+
+A Deque can act as a Queue as well as a Stack: 
+
 1. Since Queue is a FIFO structure (First In First Out i.e. add to the end and remove from the front), it has methods 
 `offer(e)/add(e)`(for adding an element to the end or tail) and `poll()/remove()`(for removing an element from the front or 
 head) for this purpose.  Note that offer and add are similar while poll and remove are similar. 
@@ -116,7 +121,8 @@ head) for this purpose.  Note that offer and add are similar while poll and re
 2. Since Stack is a LIFO structure (Last In First Out i.e. add to the front and remove from the front), it provides 
 methods `push(e)` and `pop()` for this purpose, where push adds to the front and pop removes from the front.  
 
-Besides the above methods, Deque also has variations of the above methods. But it is easy to figure out what they do:  
+Besides the above methods, Deque also has variations of the above methods. But it is easy to figure out what they do:
+ 
 - `pollFirst()/pollLast()` - poll is a Queue method. Therefore pollFirst and pollLast will remove elements from the 
 front and from the end respectively. 
 - `removeFirst()/removeLast()` - These are Deque specific methods. They will remove elements from the front and from 

@@ -5,6 +5,7 @@
 ### §2.1 Inner Classes
 
 **# Definitions:**
+
 - A top level class is a class that is not a nested class. 
 - A nested class is any class whose declaration occurs within the body of another class or interface.
 - Nested classes are divided into two categories: static and non-static. Nested classes that are declared static are 
@@ -15,6 +16,7 @@ packaging convenience.
 - A class defined inside an interface is implicitly static.
 
 **# Static nested class:**
+
 - Declaring a nested class static only means that instances of the class are created without having an outer instance. 
 It does not put any limits on whether the members of the class can be static or not.
 - Any class can statically import TestClass.TestInner like this: `import static mypack.TestOuter.TestInner;` and then 
@@ -26,6 +28,7 @@ public class TestOuter {
 ```
 
 **# Non-static inner class:**
+
 - Non static inner classes are allowed to declare static final fields that are compile time constants as members.
 - Non-static inner classes can contain final static fields (but not methods).
 - Member variables of the outer instance can only be referred to using only the variable name within the inner instance,
@@ -40,6 +43,7 @@ OuterClass.this.
 `this.new TestInner();`. this is implicit. 
 
 **# Local class:**
+
 - If the inner class is defined in a **static method** of the encapsulating class the following variables are accessible:
     * static variables of the enclosing class
     * (effectively) final local variables of the method
@@ -49,6 +53,7 @@ OuterClass.this.
     * (effectively) final local variables of the method
     
 **# Anonymous class:**
+
 - An anonymous class can be declared in a static method.
 - An anonymous class can never be static. Even if created in a static method.
 - Anonymous classes are implicitly final.
@@ -59,6 +64,7 @@ for a class then it extends that class.
 - Anonymous classes cannot have explicitly defined constructors, since they have no names.
 
 **# The rest:**
+
 - Inner classes can extend the outer class.
 - In general, there is no restriction on what a nested class may or may not extend.
 - The modifier static pertains only to member classes, not to top level or local or anonymous classes. 
@@ -82,6 +88,7 @@ which is same as that of the class.
 ### §2.2 Enumerated types
 
 **# You need to know the following facts about enums:** 
+
 1. Enum constructor is always private. You cannot make it public or protected. If an enum type has 
 no constructor declarations, then a private constructor that takes no parameters is automatically provided.
 2. An enum is implicitly final, which means you cannot extend it. 
@@ -95,6 +102,7 @@ exactly (i.e. case sensitive) with an enum constant and returns that constant if
 throws java.lang.IllegalArgumentException.  
 
 **# The following are a few more important facts about java.lang.Enum which you should know:**  
+
 1. It implements java.lang.Comparable (thus, an enum can be added to sorted collections such as 
 SortedSet, TreeSet, and TreeMap). 
 2. It has a method ordinal(), which returns the index (starting with 0) of that constant i.e. the 

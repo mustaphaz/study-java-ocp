@@ -45,6 +45,7 @@ the original list on which the stream is based.
 `Function<T, R>`. Function expects an argument to be passed. Thus, it should be `f.apply(argument);`
 
 **# Method/constructor references:**
+
 - An important point to understand with method or constructor references is that you can never pass arguments while 
 referring to a constructor or a method. Remember that such references are mere references. They are not actual 
 invocations. 
@@ -63,10 +64,12 @@ This works because f is already defined to use a constructor reference that take
 constructor.
 
 **# java.util.BiFunction:**
+
 1. It is a function that accepts two arguments and produces a result. 
 2. The types of the arguments and the return value can all be different.
 
 **# Three flavors of compute methods of Map:**
+
 1. `public V compute(K key, BiFunction<? super K,? super V,? extends V> remappingFunction)`
 If the function returns null, the mapping is removed (or remains absent if initially absent). If the function itself 
 throws an (unchecked) exception, the exception is rethrown, and the current mapping is left unchanged.
@@ -81,6 +84,7 @@ current mapped value. If the function returns null, the mapping is removed.
 Returns: the new value associated with the specified key, or null if none
 
 **# Three versions of reduce:**
+
 - `Optional<T>  reduce(BinaryOperator<T> accumulator)` Performs a reduction on the elements of this stream, using an 
 associative accumulation function, and returns an Optional describing the reduced value, if any.
 - `T  reduce(T identity, BinaryOperator<T> accumulator)` Performs a reduction on the elements of this stream, using the 
@@ -88,5 +92,6 @@ provided identity value and an associative accumulation function, and returns th
 - `<U> U  reduce(U identity, BiFunction<U,? super T,U> accumulator, BinaryOperator<U> combiner)` Performs a reduction on 
 the elements of this stream, using the provided identity, accumulation and combining functions.
 - **NOTE**: If you don't pass an identity, the first reduce method will be invoked and that returns an Optional object.
+
 ---
 [< Previous](./03-generics-and-collections.md) | [Next >](05-java-stream-api.md)

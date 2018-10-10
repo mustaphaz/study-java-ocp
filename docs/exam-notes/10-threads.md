@@ -2,7 +2,8 @@
 
 [< Previous](./09-jdbc.md) | [Next >](11-concurrency.md)
 
-- There are two ways to create a thread:  
+- There are two ways to create a thread:
+ 
 ```
     //Here MyClassThatExtendsThread should extend Thread and override the run method.  
 new MyClassThatExtendsThread().start();
@@ -12,11 +13,13 @@ new Thread( new MyClassThatImplementsRunnable() ).start();
 ```
 
 - If a class implements Runnable then a thread can be created and started as follows:
+
 ```
 class MyRunnable implements Runnable { public void run() { //other valid code. } }  
 Thread t = new Thread ( new MyRunnable() ); 
 t.start()
 ```
+
 - Threads can use the method wait() to pause their execution until signaled by another thread to continue.
 - Callable interface is very similar to Runnable interface and is used with the classes of the Executor framework. 
 It has one method with the following signature: `V call() throws Exception`.
@@ -88,6 +91,7 @@ public class Test extends Thread {
     } 
 }
 ```
+
 - You may be tempted by the synchronized keyword on the run method. But note that there are two different thread 
 objects and both the threads are acquiring locks for their own thread object. Therefore, in this case, the synchronized 
 block will not help.

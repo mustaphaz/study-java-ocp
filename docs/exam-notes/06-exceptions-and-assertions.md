@@ -28,6 +28,7 @@ exception at all.
 - List.clear() returns void.
 
 **# The two valid ways of writing assertions are:**
+
 1. `assert <boolean_expression>;`
 In this style, the boolean expression must evaluate to true or false. If it evaluates to true, everything is fine. If 
 it evaluates to false, a new AssertionError is thrown. Note that, <boolean_expression> can also be a method call that 
@@ -42,10 +43,12 @@ evaluated. The above line is thus equivalent to the following code:
 `if( !<boolean_expression>  ) throw new AssertionError(<any_expression_but_void>);`
 
 **# Valid uses of `assert`:**
+
 - `assert false : "Message";`
 -  `assert c.isEmpty();`
 
 **# Invalid uses of `assert`:**
+
 - `assert obj != null : throw new AssertionError();` Second operand must evaluate to an object or a primitive. 
 (It can also be null)
 - `assert o1, o2 != null;` --> `assert (o1 != null && o2!= null );`
@@ -53,6 +56,7 @@ evaluated. The above line is thus equivalent to the following code:
 - `assert null;` First operand must be a boolean.  `assert <someboolean> : null;` is valid.
 
 **# Basic rules which govern where assertions should be used and where they should not be used.**
+
 - Assertions should be used for:
     1. Validating input parameters of a private method.(But NOT for public methods. public methods should throw regular 
     exceptions when passed bad parameters.) 
@@ -83,6 +87,7 @@ specific class that is a super class of all the Exceptions.
 reflection mechanism to load a class and access its fields.
 
 **# try-with-resources:**
+
 1. The resource class must implement java.lang.AutoCloseable interface. Many standard JDK classes such as 
 BufferedReader, BufferedWriter implement java.io.Closeable interface, which extends java.lang.AutoCloseable.  
 2. Resources are closed at the end of the try block and before any catch or finally block.  

@@ -7,8 +7,8 @@ number of input elements collected as a long. If no elements are present, the re
 - Stream.count() returns long.
 - `Arrays.asList("a", "b").parallelStream().reduce("_", (String::concat));`
 Since we are creating a parallel stream, it is possible for both the elements of the stream to be processed by two 
-different threads. In this case, the identity argument will be used to reduce both the elements. Thus, it will print _a_b.
-It is also possible that the result of the first reduction ( _a ) is reduced further using the second element (b). 
+different threads. In this case, the identity argument will be used to reduce both the elements. Thus, it will print `_a_b`.
+It is also possible that the result of the first reduction (`_a`) is reduced further using the second element (`b`). 
 In this case, it will print _ab. Even though the elements may be processed out of order individualy in different threads, 
 the final output will be produced by joining the individual reduction results in the same order. Thus, the output can 
 never have b before a.
@@ -81,6 +81,7 @@ such as forEach, reduce, collect, count, min, max, allMatch, findAny are eager.
 - Streams support several aggregate operations such as forEach, count, average, and sum. 
 
 **# java.util.Optional:**
+
 1. Optional has a static method named of(T t) that returns an Optional object containing the value passed as argument. 
 It will throw NullPointerException if you pass null. If you want to avoid NullPointerException, you should use 
 Optional.ofNullable(T t) method. This will return Optional.empty if you pass null.
@@ -88,8 +89,8 @@ Optional.ofNullable(T t) method. This will return Optional.empty if you pass nul
 grade.of, although technically correct, will not actually change the Optional object referred to by grade. It will 
 return a new Optional object containing the passed argument.
 3. The orElse method returns the actual object contained inside the Optional or the argument passed to this method if 
-the Optional is empty. It does not return an Optional object. Therefore, print(grade1.orElse("UNKNOWN")) will print 
-UNKNOWN and not Optional[UNKNOWN].
+the Optional is empty. It does not return an Optional object. Therefore, `print(grade1.orElse("UNKNOWN"))` will print 
+`UNKNOWN` and not `Optional[UNKNOWN]`.
 4. isPresent() returns true if the Optional contains a value, false otherwise.
 5. ifPresent(Consumer) executes the Consumer object with the value if the Optional contains a value. Note that it is 
 the value contained in the Optional that is passed to the Consumer and not the Optional itself.
@@ -103,6 +104,7 @@ if the Supplier returns null. It does, however, throw a NullPointerException if 
 function itself is null.
 
 **# `Collectors.groupingBy()`:**
+
 ```
     List<Course> s1 = Arrays.asList(
             new Course("OCAJP", "Java"), 

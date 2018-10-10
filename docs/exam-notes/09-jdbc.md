@@ -51,6 +51,7 @@ transactions.
 or from within a stored procedure.
 
 **# ResultSet:**
+
 - A java.sql.ResultSet object provides a cursor to fetch data from the database.
 - The numbering of columns in a ResultSet starts with 1. The value of a field with type INT, can still be retrieved 
 using getString(). Note that if a field is of type VARCHAR and if you try to retrieve the value using say getInt() or 
@@ -91,8 +92,10 @@ when you call refreshRow without first calling updateRow? (No exception but upda
 **# CallableStatement vs. PreparedStatement:**
 
 **PreparedStatement**
+
 - A PreparedStatement is used for SQL statements that are executed multiple times with different values. For example, 
-if you want to insert several values into a table, one after another, it is a lot easier with PreparedStatement:    
+if you want to insert several values into a table, one after another, it is a lot easier with PreparedStatement:
+
 ```
 ps = c.prepareStatement("INSERT INTO STUDENT VALUES (?, ?)");
 //This is created only once 
@@ -100,26 +103,30 @@ ps = c.prepareStatement("INSERT INTO STUDENT VALUES (?, ?)");
 ps.setInt(1, 111);
 ps.setString(2, "Bob");
 ps.executeUpdate();
-
+	
 //Now change the parameter values and execute again.
 ps.setInt(1, 112);
 ps.setString(2, "Cathy");
 ps.executeUpdate();  
 ```
+
 - PreparedStatement offers better performance when the same query is to be run multiple times with different parameter 
 values.
 - PreparedStatement has specific methods for additional SQL column type such as setBlob(int parameterIndex, Blob x) and 
 setClob(int parameterIndex, Clob x).
 
 **CallableStatement**
+
 - A CallableStatement is meant for executing a stored procedure, which has already been created in the database. 
 For example:
+
 ```
 //computeMatrixForSales is a stored procedure that has already been created in the database.
 callableStatement = connection.prepareCall("{call computeMatrixForSales(?)}");
 callableStatement.setInt(1, 1000);
 callableStatement.executeUpdate();
 ```
+
 - One advantage of CallableStatement is that it allows IN/OUT parameters.
 - A CallableStatement is the only way for a JDBC program to execute stored procedures in the database if the procedure has in and out parameters.
 

@@ -20,6 +20,7 @@ write a new-line character to the underlying Writer. In addition, you may need t
 absolutely sure that the characters written until now is flushed out of the buffer and onto the network or disk. 
 
 When the BufferedReader/BufferedWriter is closed it will also close the Reader/Writer instance it reads from.
+
 ```
 BufferedReader bufferedReader = 
     new BufferedReader(new FileReader("c:\\data\\input-file.txt"));
@@ -31,7 +32,9 @@ BufferedWriter bufferedWriter =
 ```
  
 **# File:**
+
 The File class in the Java IO API gives you access to the underlying file system. Using the File class you can:
+
 - Check if a file or directory exists. `boolean fileExists = file.exists();`
 - Create a directory if it does not exist. `boolean dirCreated = file.mkdir();` or `boolean dirCreated = file.mkdirs();`
 - Read the length of a file. `long length = file.length();`
@@ -44,6 +47,7 @@ The File only gives you access to the file and file system meta data. If you nee
 you should do so using either FileInputStream, FileOutputStream or RandomAccessFile. 
 
 **# FileReader/FileWriter:**
+
 The Java FileReader/FileWriter class (java.io.FileReader/java.io.FileWriter) makes it possible to read the contents of 
 a file or write characters to a file as a stream of characters. It works much like the FileInputStream/FileOutputStream 
 except the FileInputStream/FileOutputStream reads/writes bytes, whereas the FileReader/FileWriter reads/writes characters. 
@@ -53,6 +57,7 @@ bytes depending on the character encoding scheme.
 The read() method of the Java FileReader returns an int which contains the char value of the character read. If the 
 read() method returns -1, there is no more data to read in the FileReader, and it can be closed. That is, -1 as int 
 value, not -1 as byte value. There is a difference here! 
+
 ```
 Reader fileReader = new FileReader("c:\\data\\input-text.txt");
 int data = fileReader.read();
@@ -67,6 +72,7 @@ fileReader.close();
 
 When you create a Java FileWriter you can decide if you want to overwrite any existing file with the same name, or if 
 you want to append to any existing file. You decide that by choosing what FileWriter constructor you use. 
+
 ```
 Writer fileWriter = new FileWriter("c:\\data\\output.txt");
 fileWriter.write("data 1");
@@ -81,6 +87,7 @@ on a FileInputStream or an OutputStreamWriter on a FileOutputStream instead. The
 lets you specify the character encoding scheme to use when reading the bytes in the underlying file. 
 
 **# InputStream:**
+
 The Java InputStream class represents an ordered stream of bytes. In other words, you can read data from a Java 
 InputStream as an ordered sequence of bytes. This is useful when reading data from a file, or received over the network.
 
@@ -88,6 +95,7 @@ The Java InputStream class is the base class (superclass) of all input streams i
 Subclasses include the FileInputStream, BufferedInputStream and the PushbackInputStream among others.
 
 read methods:
+
 - `int data = inputstream.read();`
 - `int read(byte[])`
 - `int read(byte[], int offset, int length)`
@@ -113,7 +121,8 @@ Constructors: The first constructor takes a String as parameter. The second File
 object as parameter.
 
 When you create a FileOutputStream pointing to a file that already exists, you can decide if you want to overwrite the 
-existing file, or if you want to append to the existing file.  
+existing file, or if you want to append to the existing file. 
+ 
 ```
 OutputStream output = new FileOutputStream("c:\\data\\output-text.txt");
 OutputStream output = new FileOutputStream("c:\\data\\output-text.txt", true); //appends to file
@@ -121,6 +130,7 @@ OutputStream output = new FileOutputStream("c:\\data\\output-text.txt", false); 
 ```
 
 **# ObjectInputStream/ObjectOutputStream:**
+
 The Java ObjectInputStream class (java.io.ObjectInputStream) enables you to read Java objects from an InputStream 
 instead of just raw bytes. You wrap an InputStream in a ObjectInputStream and then you can read objects from it. Of 
 course the bytes read must represent a valid, serialized Java object. Otherwise reading objects will fail.
@@ -142,6 +152,7 @@ Person personRead = (Person) objectInputStream.readObject();
 ```
 
 **# PrintWriter:**
+
 The Java PrintWriter class (java.io.PrintWriter) enables you to write formatted data to an underlying Writer. For 
 instance, writing int, long and other primitive data formatted as text, rather than as their byte values.
 
