@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'java-ocp'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    lombokVersion = '1.16.20'
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+
+}
